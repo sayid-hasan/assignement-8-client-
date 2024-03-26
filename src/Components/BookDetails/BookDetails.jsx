@@ -11,29 +11,30 @@ const BookDetails = () => {
 
   const handleRead = () => {
     console.log("read", idInt);
-    const wishlistArr = getIdFromLS("wishlist");
-    if (!wishlistArr.includes(idInt)) {
-      let readListArr = getIdFromLS("readList");
-      if (readListArr.includes(idInt)) {
-        toast.warn("Books Already exist in readList !");
-      } else {
-        toast.success("Books  Added in list !");
-      }
 
-      saveItemLS(idInt, "readList");
+    let readListArr = getIdFromLS("readlist");
+    if (readListArr.includes(idInt)) {
+      toast.warn("Books Already exist in readList !");
+    } else {
+      toast.success("Books  Added in list !");
     }
+
+    saveItemLS(idInt, "readlist");
   };
 
   const handleWishlist = () => {
     console.log("wishlist", idInt);
-    let wishlistArr = getIdFromLS("wishlist");
-    if (wishlistArr.includes(idInt)) {
-      toast.warn("Books Already exist in wishlist !");
-    } else {
-      toast.success("Books  Added in wishlist !");
-    }
+    const readListArr = getIdFromLS("readlist");
+    if (!readListArr.includes(idInt)) {
+      let wishlistArr = getIdFromLS("wishlist");
+      if (wishlistArr.includes(idInt)) {
+        toast.warn("Books Already exist in wishlist !");
+      } else {
+        toast.success("Books  Added in list !");
+      }
 
-    saveItemLS(idInt, "wishlist");
+      saveItemLS(idInt, "wishlist");
+    }
   };
 
   return (

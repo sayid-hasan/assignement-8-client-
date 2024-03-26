@@ -1,10 +1,10 @@
 import "./App.css";
+import Nav from "./Components/Nav";
 
 function App() {
   return (
     <>
-      <h1 className="text-6xl">Vite + React</h1>
-      <div></div>
+      <Nav></Nav>
     </>
   );
 }

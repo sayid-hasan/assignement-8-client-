@@ -8,6 +8,7 @@ import Home from "./Pages/Home";
 import Listedbooks from "./Pages/Listedbooks";
 import PagestoRead from "./Pages/PagestoRead";
 import ErrorPage from "./Pages/ErrorPage";
+import BookDetails from "./Components/BookDetails/BookDetails";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,11 @@ const router = createBrowserRouter([
       {
         path: "/pagestoread",
         element: <PagestoRead></PagestoRead>,
+      },
+      {
+        path: "/:userId",
+        loader: () => fetch("blogs.json"),
+        element: <BookDetails></BookDetails>,
       },
     ],
   },

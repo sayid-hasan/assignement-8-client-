@@ -1,3 +1,4 @@
+import Books from "../Components/Books/Books";
 import Hero from "../Components/Hero/Hero";
 
 const Home = () => {
@@ -5,6 +6,8 @@ const Home = () => {
     <div>
       {/* hero section */}
       <Hero></Hero>
+      {/* Books */}
+      <Books></Books>
     </div>
   );
 };

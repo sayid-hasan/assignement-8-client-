@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
-
+import { FaRegStar } from "react-icons/fa6";
 const Book = ({ book }) => {
   const { bookName, author, image, rating, tags, category } = book;
 
   return (
     <div>
-      <div className=" p-6 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900">
+      <div className=" border-[#13131326] border-[1px] p-6 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900">
         <div className="bg-[#F3F3F3] flex justify-center items-center rounded-md border-none outline-none">
           <img
             src={image}
@@ -27,12 +27,23 @@ const Book = ({ book }) => {
             ))}
           </ul>
           {/* book name */}
-          <h2 className="text-2xl font-bold tracking-wide">{bookName}</h2>
+          <h2 className="text-2xl font-bold min-h-[65px] tracking-wide">
+            {bookName}
+          </h2>
+          {/* author name */}
+          <p className="mt-3 pb-5 border-b-[1px] border-dashed border-[#13131326] text-[#131313] text-opacity-60 font-semibold work-sans-font text-base">
+            By : {author}
+          </p>
+
+          {/* rating */}
+          <div className="mt-5 text-[#131313] text-opacity-60 font-semibold work-sans-font text-base flex items-center justify-between">
+            <div>{category}</div>
+            <div className="flex  gap-2">
+              {rating}
+              <FaRegStar className="text-xl self-start"></FaRegStar>
+            </div>
+          </div>
         </div>
-        <p className="dark:text-gray-800">
-          Mauris et lorem at elit tristique dignissim et ullamcorper elit. In
-          sed feugiat mi. Etiam ut lacinia dui.
-        </p>
       </div>
     </div>
   );

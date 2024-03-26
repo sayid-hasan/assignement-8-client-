@@ -1,9 +1,40 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { getIdFromLS, saveItemLS } from "../../Utilities/LocalStorageitem";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const BookDetails = () => {
   const { userId } = useParams();
+  const idInt = parseInt(userId);
   const books = useLoaderData();
-  const book = books.find((book) => book.bookId === parseInt(userId));
+  const book = books.find((book) => book.bookId === idInt);
+
+  const handleRead = () => {
+    console.log("read", idInt);
+    const wishlistArr = getIdFromLS("wishlist");
+    if (!wishlistArr.includes(idInt)) {
+      let readListArr = getIdFromLS("readList");
+      if (readListArr.includes(idInt)) {
+        toast.warn("Books Already exist in readList !");
+      } else {
+        toast.success("Books  Added in list !");
+      }
+
+      saveItemLS(idInt, "readList");
+    }
+  };
+
+  const handleWishlist = () => {
+    console.log("wishlist", idInt);
+    let wishlistArr = getIdFromLS("wishlist");
+    if (wishlistArr.includes(idInt)) {
+      toast.warn("Books Already exist in wishlist !");
+    } else {
+      toast.success("Books  Added in wishlist !");
+    }
+
+    saveItemLS(idInt, "wishlist");
+  };
 
   return (
     <div>
@@ -95,13 +126,20 @@ const BookDetails = () => {
             </div>
             {/* buttons */}
             <div className="flex flex-col space-y-4 mt-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start text-lg font-bold">
-              <a className="px-8 py-3 text-black border-[1px] solid border-[#1313134D] text-lg font-bold   h-auto        btn rounded-md">
+              <a
+                onClick={handleRead}
+                className="px-8 py-3 text-black border-[1px] solid border-[#1313134D] text-lg font-bold   h-auto        btn rounded-md"
+              >
                 Read
               </a>
-              <a className="px-8 py-3 text-lg font-bold h-auto btn bg-[#50B1C9] text-white rounded-md">
+              <a
+                onClick={handleWishlist}
+                className="px-8 py-3 text-lg font-bold h-auto btn bg-[#50B1C9] text-white rounded-md"
+              >
                 Wishlist
               </a>
             </div>
+            <ToastContainer></ToastContainer>
           </div>
         </div>
       </section>

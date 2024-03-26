@@ -5,7 +5,7 @@ const Hero = () => {
     <section className="bg-[#1313130D] text-black rounded-3xl ">
       <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-center lg:gap-20">
         <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left gap-12 ">
-          <h1 className="text-5xl font-bold  md:text-[56px] leading-[84px] playfair-display-font">
+          <h1 className="text-4xl font-bold  md:text-[56px] leading-normal md:leading-[84px] playfair-display-font">
             Books to freshen up your bookshelf
           </h1>
 

@@ -49,22 +49,55 @@ const Nav = () => {
               Sign up
             </button>
           </div>
-          <button className="p-4 lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-6 h-6 dark:text-gray-800"
+
+          {/* dropDown */}
+          <div className="dropdown p-4 lg:hidden">
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="w-6 h-6 dark:text-gray-800"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-44 right-0 top-0"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
-          </button>
+              <li className="flex items-center">
+                <NavLink
+                  to="/"
+                  className="text-[#131313] text-opacity-60 flex items-center px-5 py-3 h-12 rounded-[8px] text-lg font-medium -mb-1 "
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li className="flex items-center">
+                <NavLink
+                  to="/listedbooks"
+                  className=" text-[#131313] text-opacity-60 flex items-center px-5 py-3 h-12 rounded-[8px] text-lg font-medium -mb-1 "
+                >
+                  Listed Books
+                </NavLink>
+              </li>
+              <li className="flex items-center">
+                <NavLink
+                  to="pagestoread"
+                  className="text-[#131313] text-opacity-60 flex items-center px-5 py-3 h-12 rounded-[8px] text-lg font-medium -mb-1 "
+                >
+                  Pages to Read
+                </NavLink>
+              </li>
+            </ul>
+          </div>
         </div>
       </header>
     </div>

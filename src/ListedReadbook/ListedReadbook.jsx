@@ -1,9 +1,13 @@
 import PropTypes from "prop-types";
+import { IoLocationOutline } from "react-icons/io5";
+import { BsPerson } from "react-icons/bs";
+import { MdOutlineContactPage } from "react-icons/md";
+import { NavLink } from "react-router-dom";
 const ListedReadbook = ({ savedbook }) => {
   return (
     <>
-      <li className="flex border-[1px] border-[#13131326] rounded-2xl flex-col py-6 sm:flex-row sm:justify-between">
-        <div className="flex w-full gap-6 ">
+      <li className="flex items-center border-[1px] border-[#13131326] rounded-2xl flex-col py-6 sm:flex-row sm:justify-between">
+        <div className="flex flex-col md:flex-row items-center w-full gap-6 ">
           {/* img */}
           <div className="flex justify-center items-center w-[230px] aspect-square rounded-lg bg-[#1313130D]">
             <img
@@ -12,7 +16,7 @@ const ListedReadbook = ({ savedbook }) => {
               alt="Polaroid camera"
             />
           </div>
-          <div className="flex flex-col justify-between w-full pb-4">
+          <div className="flex flex-col items-center md:items-start justify-between w-full pb-3">
             <div className="">
               <div className="space-y-1">
                 <h3 className="text-2xl font-bold ">{savedbook.bookName}</h3>
@@ -26,13 +30,13 @@ const ListedReadbook = ({ savedbook }) => {
 
                 {/* tags and year */}
                 <div className="pb-7 border-b-[1px] border-dashed border-[#13131326]">
-                  <div className="flex items-center">
+                  <div className="flex items-center flex-wrap md:flex-nowrap gap-6">
                     {/* tags */}
-                    <div className="flex  gap-7 ">
+                    <div className="flex   gap-7 ">
                       <h3 className="font-bold work-sans-font text-base self-center">
                         Tag
                       </h3>
-                      <ul className=" flex items-center gap-3 ">
+                      <ul className=" flex flex-wrap md:flex-nowrap items-center gap-3 ">
                         {savedbook.tags.map((tag, idx) => (
                           <li
                             className="px-4 py-2 rounded-full text-[#23BE0A] font-medium text-sm  whitespace-nowrap  bg-[#F3F3F3]"
@@ -45,26 +49,48 @@ const ListedReadbook = ({ savedbook }) => {
                     </div>
                     {/* year of publishing */}
 
-                    <div className=" flex text-[#131313] text-opacity-60 font-bold work-sans-font ">
+                    <div className=" flex gap-2 text-[#131313] text-opacity-60 font-bold work-sans-font ">
+                      <IoLocationOutline className="text-2xl self-center"></IoLocationOutline>
                       <h2 className="">Year of Publishing : </h2>
                       <p className="">{savedbook.yearOfPublishing}</p>
                     </div>
                   </div>
                   {/* Details */}
-                  <div className="mt-6 flex items-center">
+                  <div className="mt-6 flex gap-5 flex-wrap md:flex-nowrap items-center">
                     {/* 1 */}
-                    <div className=" flex text-[#131313] text-opacity-60 font-bold work-sans-font ">
+                    <div className=" flex gap-2 text-[#131313] text-opacity-60 font-bold work-sans-font ">
+                      <BsPerson className="text-2xl self-start"></BsPerson>
                       <h2 className=""> Publisher : </h2>
                       <p className="">{savedbook.publisher}</p>
                     </div>
                     {/* 2 */}
-                    <div className=" flex text-[#131313] text-opacity-60 font-bold work-sans-font ">
+                    <div className=" flex gap-2 text-[#131313] text-opacity-60 font-bold work-sans-font ">
+                      <MdOutlineContactPage className="text-2xl self-start"></MdOutlineContactPage>
                       <h2 className="">Pages : </h2>
                       <p className="">{savedbook.totalPages}</p>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div>
+              <ul className="flex items-center flex-wrap md:flex-nowrap mt-4 gap-4">
+                <li className="px-4 py-2 rounded-full text-[#328EFF] font-medium text-base whitespace-nowrap  bg-[#328EFF26]">
+                  Categrory : {savedbook.category}
+                </li>
+                {/* 2 */}
+                <li className="px-4 py-2 rounded-full text-[#FFAC33] font-medium text-base whitespace-nowrap  bg-[#FFAC3326]">
+                  Rating : {savedbook.rating}
+                </li>
+                {/* 3 */}
+                <NavLink
+                  to={`/${savedbook.bookId}`}
+                  className="px-4 py-2 rounded-full text-white font-medium text-base whitespace-nowrap  bg-[#23BE0A]"
+                >
+                  View Details
+                </NavLink>
+              </ul>
             </div>
           </div>
         </div>

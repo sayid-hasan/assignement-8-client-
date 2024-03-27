@@ -3,6 +3,8 @@ import { IoIosArrowDown } from "react-icons/io";
 import { NavLink, Outlet } from "react-router-dom";
 
 const Listedbooks = () => {
+  const [propertyType, setPropertyType] = useState("");
+
   const [tabIndex, setTabIndex] = useState(0);
   return (
     <div>
@@ -17,9 +19,24 @@ const Listedbooks = () => {
             Sort By <IoIosArrowDown></IoIosArrowDown>
           </summary>
           <ul className="p-2 shadow menu dropdown-content z-[1] bg-[#131313] bg-opacity-5 text-[#131313] text-opacity-60 space-y-3 rounded-box w-52 text-base font-bold">
-            <li>Rating</li>
-            <li>Number of Pages</li>
-            <li>Publish Year</li>
+            <li
+              className="cursor-pointer"
+              onClick={() => setPropertyType("rating")}
+            >
+              Rating
+            </li>
+            <li
+              className="cursor-pointer"
+              onClick={() => setPropertyType("totalPages")}
+            >
+              Number of Pages
+            </li>
+            <li
+              className="cursor-pointer"
+              onClick={() => setPropertyType("yearOfPublishing")}
+            >
+              Publish Year
+            </li>
           </ul>
         </details>
       </div>
@@ -29,7 +46,10 @@ const Listedbooks = () => {
       <div className="flex items-center mb-8  overflow-x-auto overflow-y-hidden justify-start flex-nowrap dark:bg-gray-100 dark:text-gray-800">
         <NavLink
           to=""
-          onClick={() => setTabIndex(0)}
+          onClick={() => {
+            setTabIndex(0);
+            setPropertyType("");
+          }}
           className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${
             tabIndex === 0 ? `border border-b-0` : `border-b`
           } rounded-t-lg border-[#131313] border-opacity-15  `}
@@ -50,7 +70,10 @@ const Listedbooks = () => {
         </NavLink>
         <NavLink
           to="listwishlist"
-          onClick={() => setTabIndex(1)}
+          onClick={() => {
+            setTabIndex(1);
+            setPropertyType("");
+          }}
           className={`flex items-center grow px-5 py-3 space-x-2 ${
             tabIndex === 1 ? `border border-b-0` : `border-b`
           } rounded-t-lg border-[#131313] border-opacity-15  `}
@@ -71,7 +94,8 @@ const Listedbooks = () => {
           <span className="text-lg font-bold text-[#13131380]">Wishlist</span>
         </NavLink>
       </div>
-      <Outlet></Outlet>
+
+      <Outlet context={{ propertyType }}></Outlet>
 
       {/* listed items */}
     </div>

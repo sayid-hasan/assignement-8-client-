@@ -7,7 +7,7 @@ const BookDetails = () => {
   const { userId } = useParams();
   const idInt = parseInt(userId);
   const books = useLoaderData();
-  const book = books.find((book) => book.bookId === idInt);
+  const book = [...books].find((book) => book.bookId === idInt);
 
   const handleRead = () => {
     console.log("read", idInt);
@@ -34,6 +34,8 @@ const BookDetails = () => {
       }
 
       saveItemLS(idInt, "wishlist");
+    } else {
+      toast.error("You have already read this book");
     }
   };
 

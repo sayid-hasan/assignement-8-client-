@@ -9,6 +9,8 @@ import Listedbooks from "./Pages/Listedbooks";
 import PagestoRead from "./Pages/PagestoRead";
 import ErrorPage from "./Pages/ErrorPage";
 import BookDetails from "./Components/BookDetails/BookDetails";
+import ListedRead from "./Components/ListedRead/ListedRead";
+import ListedWishlist from "./Components/ListedWishlist/ListedWishlist";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +24,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/listedbooks",
+
         element: <Listedbooks></Listedbooks>,
+        children: [
+          {
+            index: true,
+
+            element: <ListedRead></ListedRead>,
+          },
+          {
+            path: "listwishlist",
+            element: <ListedWishlist></ListedWishlist>,
+          },
+        ],
       },
       {
         path: "/pagestoread",

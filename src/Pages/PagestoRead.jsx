@@ -10,6 +10,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  Legend,
 } from "recharts";
 import { useLoaderData } from "react-router-dom";
 
@@ -21,7 +22,6 @@ const PagestoRead = () => {
   const readListBooks = [...books].filter((book) =>
     readListBookId.includes(book.bookId)
   );
-  console.log(readListBooks);
 
   // // // barcharts info
   const getPath = (x, y, width, height) => {
@@ -58,12 +58,10 @@ const PagestoRead = () => {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis
-            dataKey="
-        totalPages"
-          />
-          <YAxis />
+          <XAxis dataKey="bookName" />
+          <YAxis dataKey="totalPages" />
           <Tooltip></Tooltip>
+          <Legend></Legend>
 
           <Bar
             dataKey="totalPages"
@@ -71,6 +69,12 @@ const PagestoRead = () => {
             shape={<TriangleBar />}
             label={{ position: "top" }}
           >
+            <Bar
+              dataKey="totalPages"
+              fill="#8884d8"
+              shape={<TriangleBar />}
+              label={{ position: "top" }}
+            ></Bar>
             {readListBooks.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={colors[index % 20]} />
             ))}

@@ -14,7 +14,7 @@ const Nav = () => {
           </NavLink>
           <ul
             id="NavContainer"
-            className="items-stretch hidden space-x-3 lg:flex"
+            className="items-stretch hidden space-x-2 lg:flex"
           >
             <li className="flex items-center">
               <NavLink
@@ -38,6 +38,23 @@ const Nav = () => {
                 className="text-[#131313] text-opacity-60 flex items-center px-5 py-3 h-12 rounded-[8px] text-lg font-medium -mb-1 "
               >
                 Pages to Read
+              </NavLink>
+            </li>
+            {/* challenge section */}
+            <li className="flex items-center">
+              <NavLink
+                to="/contactus"
+                className=" text-[#131313] text-opacity-60 flex items-center px-5 py-3 h-12 rounded-[8px] text-lg font-medium -mb-1 "
+              >
+                Contact Us
+              </NavLink>
+            </li>
+            <li className="flex items-center">
+              <NavLink
+                to="/testimonials"
+                className="text-[#131313] text-opacity-60 flex items-center px-5 py-3 h-12 rounded-[8px] text-lg font-medium -mb-1 "
+              >
+                Testimonials
               </NavLink>
             </li>
           </ul>
@@ -94,6 +111,23 @@ const Nav = () => {
                   className="text-[#131313] text-opacity-60 flex items-center px-5 py-3 h-12 rounded-[8px] text-lg font-medium -mb-1 "
                 >
                   Pages to Read
+                </NavLink>
+              </li>
+              {/* challenge section */}
+              <li className="flex items-center">
+                <NavLink
+                  to="/contactus"
+                  className=" text-[#131313] text-opacity-60 flex items-center px-5 py-3 h-12 rounded-[8px] text-lg font-medium -mb-1 "
+                >
+                  Contact Us
+                </NavLink>
+              </li>
+              <li className="flex items-center">
+                <NavLink
+                  to="/testimonials"
+                  className="text-[#131313] text-opacity-60 flex items-center px-5 py-3 h-12 rounded-[8px] text-lg font-medium -mb-1 "
+                >
+                  Testimonials
                 </NavLink>
               </li>
             </ul>

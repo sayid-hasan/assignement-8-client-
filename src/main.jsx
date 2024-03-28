@@ -11,6 +11,8 @@ import ErrorPage from "./Pages/ErrorPage";
 import BookDetails from "./Components/BookDetails/BookDetails";
 import ListedRead from "./Components/ListedRead/ListedRead";
 import ListedWishlist from "./Components/ListedWishlist/ListedWishlist";
+import ContactUs from "./Pages/ContactUs";
+import Testimonials from "./Pages/Testimonials";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +49,16 @@ const router = createBrowserRouter([
         path: "/:userId",
         loader: () => fetch("/blogs.json"),
         element: <BookDetails></BookDetails>,
+      },
+      {
+        path: "/contactus",
+
+        element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "/testimonials",
+
+        element: <Testimonials></Testimonials>,
       },
     ],
   },

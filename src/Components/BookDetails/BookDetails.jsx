@@ -85,7 +85,7 @@ const BookDetails = () => {
               <h3 className="font-bold work-sans-font text-base self-center">
                 Tag
               </h3>
-              <ul className=" flex items-center gap-3 ">
+              <ul className=" flex items-center gap-3 flex-wrap md:flex-nowrap ">
                 {book.tags.map((tag, idx) => (
                   <li
                     className="px-4 py-2 rounded-full text-[#23BE0A] font-medium text-sm  whitespace-nowrap  bg-[#F3F3F3]"

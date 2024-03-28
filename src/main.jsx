@@ -40,6 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/pagestoread",
+        loader: async () => fetch("blogs.json"),
         element: <PagestoRead></PagestoRead>,
       },
       {

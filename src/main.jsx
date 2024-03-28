@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/:userId",
-        loader: async () => fetch("blogs.json"),
+        loader: () => fetch("/blogs.json"),
         element: <BookDetails></BookDetails>,
       },
     ],

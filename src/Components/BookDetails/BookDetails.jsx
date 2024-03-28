@@ -2,12 +2,21 @@ import { useLoaderData, useParams } from "react-router-dom";
 import { getIdFromLS, saveItemLS } from "../../Utilities/LocalStorageitem";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { DotLoader } from "react-spinners";
 
 const BookDetails = () => {
   const { userId } = useParams();
   const idInt = parseInt(userId);
   const books = useLoaderData();
   const book = [...books].find((book) => book.bookId === idInt);
+
+  if (!book) {
+    return (
+      <div className="flex justify-center">
+        <DotLoader color="#36d7b7" />
+      </div>
+    ); //
+  }
 
   const handleRead = () => {
     console.log("read", idInt);
@@ -46,7 +55,7 @@ const BookDetails = () => {
           {/* Image */}
           <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 lg:h-[740px] sm:h-80  xl:h-112 2xl:h-128 bg-[#1313130D] lg:w-[575px] rounded-2xl">
             <img
-              src={book.image}
+              src={book.image || ""}
               alt=""
               className="w-[425px] rounded-2xl h-[565px]"
             />

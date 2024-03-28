@@ -110,7 +110,7 @@ const Testimonials = () => {
                   to indulge my love for books. With its extensive library
                   accessible from any device, I can easily squeeze in a few
                   chapters during my commute or unwind with a captivating story
-                  before bed. It's like having a virtual bookstore at my
+                  before bed. It is like having a virtual bookstore at my
                   fingertips!
                 </p>
                 <svg
